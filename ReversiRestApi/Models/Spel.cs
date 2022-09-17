@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ReversieISpelImplementatie.Model
+﻿namespace ReversieISpelImplementatie.Model
 {
     public class Spel : ISpel
     {
@@ -64,9 +58,11 @@ namespace ReversieISpelImplementatie.Model
         }
 
 
-        public bool Afgelopen()     // return true als geen van de spelers een zet kan doen
+        public bool Afgelopen()
         {
-            throw new NotImplementedException();    // todo!
+
+            // return true als geen van de spelers een zet kan doen
+            return !IsErEenZetMogelijk(Kleur.Wit) && !IsErEenZetMogelijk(Kleur.Zwart);
         }
 
         public Kleur OverwegendeKleur()
@@ -99,7 +95,23 @@ namespace ReversieISpelImplementatie.Model
 
         public void DoeZet(int rijZet, int kolomZet)
         {
-            throw new NotImplementedException();    // todo: maak hierbij gebruik van de reeds in deze klassen opgenomen methoden!
+
+            // todo: maak hierbij gebruik van de reeds in deze klassen opgenomen methoden!
+            if (!ZetMogelijk(rijZet, kolomZet))
+            {
+                throw new Exception($"Zet ({rijZet},{kolomZet}) is niet mogelijk!");
+            }
+
+            Bord[rijZet, kolomZet] = AandeBeurt;
+            // Draai alle stenen die moeten worden omgedraaid
+            for (int i = 0; i < 8; i++)
+            {
+                for(int y = 0; y <8; y++)
+                DraaiStenenVanTegenstanderInOpgegevenRichtingOmIndienIngesloten(rijZet, kolomZet, AandeBeurt, richting[i, 0], richting[i, 1]);
+            }
+
+            WisselBeurt();
+
         }
 
         private static Kleur GetKleurTegenstander(Kleur kleur)
@@ -165,9 +177,10 @@ namespace ReversieISpelImplementatie.Model
             return (PositieBinnenBordGrenzen(rijZet, kolomZet) && Bord[rijZet, kolomZet] == Kleur.Geen);
         }
 
-        private bool StenenInTeSluitenInOpgegevenRichting(int rijZet, int kolomZet,
-                                                          Kleur kleurZetter,
-                                                          int rijRichting, int kolomRichting)
+        private bool StenenInTeSluitenInOpgegevenRichting(
+            int rijZet, int kolomZet,
+            Kleur kleurZetter,
+            int rijRichting, int kolomRichting)
         {
             int rij, kolom;
             Kleur kleurTegenstander = GetKleurTegenstander(kleurZetter);
