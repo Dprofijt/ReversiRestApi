@@ -1,6 +1,6 @@
 ﻿namespace ReversiRestApi.Models
 {
-    public class Speler
+    public class Speleroud
     {
         
     }

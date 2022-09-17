@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReversiRestApi", "ReversiRestApi\ReversiRestApi.csproj", "{415DC44C-1A6A-478A-BD06-D788562A4076}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReversiRestApi", "ReversiRestApi\ReversiRestApi.csproj", "{415DC44C-1A6A-478A-BD06-D788562A4076}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReversiTests", "ReversiTests\ReversiTests.csproj", "{8156DAB3-08D0-4004-A2CC-30AC8DAD9440}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReversiTests", "ReversiTests\ReversiTests.csproj", "{8156DAB3-08D0-4004-A2CC-30AC8DAD9440}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
