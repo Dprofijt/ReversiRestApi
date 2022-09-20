@@ -60,7 +60,6 @@
 
         public bool Afgelopen()
         {
-
             // return true als geen van de spelers een zet kan doen
             return !IsErEenZetMogelijk(Kleur.Wit) && !IsErEenZetMogelijk(Kleur.Zwart);
         }
@@ -102,14 +101,12 @@
                 throw new Exception($"Zet ({rijZet},{kolomZet}) is niet mogelijk!");
             }
 
-            Bord[rijZet, kolomZet] = AandeBeurt;
             // Draai alle stenen die moeten worden omgedraaid
             for (int i = 0; i < 8; i++)
             {
-                for(int y = 0; y <8; y++)
                 DraaiStenenVanTegenstanderInOpgegevenRichtingOmIndienIngesloten(rijZet, kolomZet, AandeBeurt, richting[i, 0], richting[i, 1]);
             }
-
+            Bord[rijZet, kolomZet] = AandeBeurt;
             WisselBeurt();
 
         }
