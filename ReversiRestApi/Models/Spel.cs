@@ -95,7 +95,6 @@
         public void DoeZet(int rijZet, int kolomZet)
         {
 
-            // todo: maak hierbij gebruik van de reeds in deze klassen opgenomen methoden!
             if (!ZetMogelijk(rijZet, kolomZet))
             {
                 throw new Exception($"Zet ({rijZet},{kolomZet}) is niet mogelijk!");
