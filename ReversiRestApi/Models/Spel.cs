@@ -19,6 +19,8 @@
         public string Speler1Token { get; set; }
         public string Speler2Token { get; set; }
 
+        public string Winnaar { get; set; }
+
         private Kleur[,] bord;
         public Kleur[,] Bord
         {
@@ -61,7 +63,7 @@
         public bool Afgelopen()
         {
             // return true als geen van de spelers een zet kan doen
-            return !IsErEenZetMogelijk(Kleur.Wit) && !IsErEenZetMogelijk(Kleur.Zwart);
+            return !IsErEenZetMogelijk(Kleur.Wit) && !IsErEenZetMogelijk(Kleur.Zwart) || Winnaar != null;
         }
 
         public Kleur OverwegendeKleur()
@@ -233,6 +235,19 @@
                 stenenOmgedraaid = true;
             }
             return stenenOmgedraaid;
+        }
+
+        // opgeven speler
+        public void Opgeven(string spelertoken)
+        {
+            if (spelertoken == Speler1Token)
+            {
+                Winnaar = Speler2Token;
+            }
+            else
+            {
+                Winnaar = Speler1Token;
+            }
         }
     }
 }

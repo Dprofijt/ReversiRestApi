@@ -20,8 +20,14 @@ namespace ReversieISpelImplementatie.Model
 
         Kleur[,] Bord { get; set; }
         Kleur AandeBeurt { get; set; }
+
+        string Winnaar { get; set; }
+
+        void Opgeven(string spelerToken);
+
         void Pas();
         bool Afgelopen();
+        
 
         //welke kleur het meest voorkomend op het speelbord
         Kleur OverwegendeKleur();

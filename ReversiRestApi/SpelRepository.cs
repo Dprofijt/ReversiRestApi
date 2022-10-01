@@ -1,4 +1,5 @@
-﻿using ReversieISpelImplementatie.Model;
+﻿using System.Diagnostics;
+using ReversieISpelImplementatie.Model;
 
 namespace ReversiRestApi
 {
@@ -53,6 +54,7 @@ namespace ReversiRestApi
                 Spellen.Remove(spel);
                 return true;
             }
+
             return false;
         }
 
@@ -64,6 +66,7 @@ namespace ReversiRestApi
                 spelToUpdate.Speler2Token = spel.Speler2Token;
                 return true;
             }
+
             return false;
         }
 
@@ -80,10 +83,27 @@ namespace ReversiRestApi
                 {
                     spel.Speler2Token = null;
                 }
+
                 return true;
             }
+
             return false;
+
+
         }
 
+        public Spel GetSpelMetSpelerToken(string spelerToken)
+        {
+
+            var spel = Spellen.FirstOrDefault(s => s.Speler1Token == spelerToken || s.Speler2Token == spelerToken);
+
+            //if Spellen.First... is null return error
+            if (spel == null)
+            {
+                throw new Exception("Speler is niet in een spel");
+            }
+
+            return spel;
+        }
     }
 }
