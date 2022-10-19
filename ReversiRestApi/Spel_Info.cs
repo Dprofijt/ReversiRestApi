@@ -39,7 +39,7 @@ namespace ReversiRestApi
             }
             return stringBord.ToString();
         }
-        public string GetNumberFromColor(Kleur kleur)
+        public static string GetNumberFromColor(Kleur kleur)
         {
             switch (kleur)
             {

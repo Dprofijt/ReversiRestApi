@@ -21,6 +21,7 @@ namespace ReversiRestApi
             spel2.Omschrijving = "Ik zoek een gevorderde tegenspeler!";
             spel3.Speler1Token = "stuvwx";
             spel3.Omschrijving = "Na dit spel wil ik er nog een paar spelen tegen zelfde tegenstander";
+            spel1.Token = "todo";
 
 
             Spellen = new List<Spel> { spel1, spel2, spel3 };
